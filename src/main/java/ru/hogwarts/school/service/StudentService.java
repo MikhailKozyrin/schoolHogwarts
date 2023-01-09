@@ -13,15 +13,20 @@ public class StudentService {
     private final StudentRepository studentRepository;
 
     public StudentService(StudentRepository studentRepository) {
+
         this.studentRepository = studentRepository;
     }
 
     public Student addStudent(Student student) {
+        if (student.getId() < 0) {
+            return null;
+        }
         return studentRepository.save(student);
     }
 
 
     public Student findStudent(long id) {
+
         return studentRepository.findById(id).orElse(null);
     }
 

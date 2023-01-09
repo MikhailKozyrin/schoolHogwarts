@@ -15,4 +15,4 @@ where age < id;
 
 select *
 from student
-order by age, name;;
+order by age, name;
